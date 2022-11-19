@@ -34,33 +34,33 @@ public class ClientOperationsImpl implements ClientOperations {
     @Override
     @ShellMethod(value = "Assign the nearest available room")
     public String assignRoom() {
-        return null;
+        return assignRoomHandler.handle();
     }
 
     @Override
     @ShellMethod(value = "Checkout from the room. The room input can be provided by adding -R *roomNumber* " +
             "or --room *roomNumber*. Don't include * in input.")
     public String checkoutRoom(@ShellOption({"-R", "--room"}) String room) {
-        return null;
+        return checkoutRoomHandler.handle(room);
     }
 
     @Override
     @ShellMethod(value = "Clean the room. The room input can be provided by adding -R *roomNumber* " +
             "or --room *roomNumber*. Don't include * in input.")
     public String cleanRoom(@ShellOption({"-R", "--room"}) String room) {
-        return null;
+        return cleanRoomHandler.handle(room);
     }
 
     @Override
     @ShellMethod(value = "Repair the room. The room input can be provided by adding -R *roomNumber* " +
             "or --room *roomNumber*. Don't include * in input.")
     public String repairRoom(@ShellOption({"-R", "--room"}) String room) {
-        return null;
+        return repairRoomHandler.handle(room);
     }
 
     @Override
     @ShellMethod(value = "List all available rooms.")
     public List<String> listAvailableRooms() {
-        return null;
+        return availableRoomsHandler.handle();
     }
 }

@@ -1,6 +1,8 @@
 package com.codeChallenge.codeChallenge.handler;
 
-public interface InputHandler<Input> {
+public interface InputHandler<Output, Input> {
 
-    String handle(Input input);
+    Output handle(Input input);
+
+    Output handle();
 }
