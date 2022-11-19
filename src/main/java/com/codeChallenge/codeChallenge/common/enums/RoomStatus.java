@@ -27,4 +27,9 @@ public enum RoomStatus {
     public String getRoomStatus() {
         return roomStatus;
     }
+
+    @Override
+    public String toString() {
+        return roomStatus;
+    }
 }

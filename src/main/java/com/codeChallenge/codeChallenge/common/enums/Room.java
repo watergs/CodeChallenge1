@@ -32,13 +32,13 @@ public enum Room {
         this.room = room;
     }
 
-    private static Map<Room, Integer> roomDistanceMap;
+    private static Map<String, Room> roomMap;
 
     static {
-        roomDistanceMap = new HashMap<>();
+        roomMap = new HashMap<>();
 
         for(Room room: Room.values()) {
-            roomDistanceMap.put(room, room.getDistance());
+            roomMap.put(room.getRoom(), room);
         }
     }
 
@@ -48,5 +48,14 @@ public enum Room {
 
     public int getDistance() {
         return distance;
+    }
+
+    public static Room getEnumFromPersistentValue(String room) {
+        return roomMap.getOrDefault(room, null);
+    }
+
+    @Override
+    public String toString() {
+        return room;
     }
 }

@@ -7,9 +7,17 @@ import java.util.List;
 
 public interface OperationsExecutor {
 
-    String findNearestAvailableRoom();
+    Room findNearestAvailableRoom();
 
-    boolean markRoom(Room room, RoomStatus roomStatus);
+    RoomStatus findRoomStatus(Room room);
+
+    void markRoom(Room room, RoomStatus roomStatus);
+
+    Integer findRoomCountOfRoomStatus(RoomStatus roomStatus);
 
     List<Room> findAllRoomsOfRoomStatus(RoomStatus roomStatus);
+
+    List<Room> getAllRooms();
+
+
 }

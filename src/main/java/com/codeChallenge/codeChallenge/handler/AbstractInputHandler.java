@@ -1,7 +1,6 @@
 package com.codeChallenge.codeChallenge.handler;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 
 @Slf4j
 public abstract class AbstractInputHandler<Output, Input> implements InputHandler<Output, Input> {
@@ -18,11 +17,11 @@ public abstract class AbstractInputHandler<Output, Input> implements InputHandle
     public Output handle() {
         Input input = null;
         logInput(input);
-        Output validationError = validateInput(input);
+        Output validationError = validateInput();
         if(validationError != null) {
             return validationError;
         }
-        return doHandle(input);
+        return doHandle();
     }
 
     protected abstract Output validateInput(Input input);
@@ -31,9 +30,9 @@ public abstract class AbstractInputHandler<Output, Input> implements InputHandle
 
     protected void logInput(Input input){
         if (input == null) {
-            log.info("No input detected");
+            log.debug("No input detected");
         } else {
-            log.info("Input: ", input);
+            log.debug("Input: ", input);
         }
     }
 

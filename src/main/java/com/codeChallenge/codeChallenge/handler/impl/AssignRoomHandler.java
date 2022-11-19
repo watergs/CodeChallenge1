@@ -1,5 +1,6 @@
 package com.codeChallenge.codeChallenge.handler.impl;
 
+import com.codeChallenge.codeChallenge.executor.OperationsExecutor;
 import com.codeChallenge.codeChallenge.handler.AbstractInputHandler;
 import com.codeChallenge.codeChallenge.handler.validator.impl.AssignRoomInputValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +12,17 @@ public class AssignRoomHandler extends AbstractInputHandler<String, String> {
     @Autowired
     private AssignRoomInputValidator assignRoomInputValidator;
 
+    @Autowired
+    private OperationsExecutor operationsExecutor;
+
     @Override
     protected String validateInput() {
-        return null;
+        return assignRoomInputValidator.validate();
     }
 
     @Override
     protected String doHandle() {
-        return null;
+        return operationsExecutor.findNearestAvailableRoom().getRoom();
     }
 
     @Override
